@@ -15,16 +15,17 @@ internal class Program
         using (var qb = new QueryBuilder.QueryBuilder(database))
         {
            
-            var sk = new Author(90989, "Gabbin", "Frisby");
-            //var dk = new Author(24, "Sho", "Khan");
+            var sk = new Author(9000, "Gabbin", "Frisby");
+            var dk = new Author(24, "Sho", "Khan");
+            qb.Create<Author>(dk);
             qb.Create<Author>(sk);
             qb.Read<Author>(19);
             qb.Update<Author>(sk ,19);
             authors = qb.ReadAll<Author>();
-            qb.Delete<Author>(sk);
+            //qb.Delete<Author>(sk);
         }
 
-        authors.Sort();
+        //authors.Sort();
         foreach(Author author in authors)
         {
             Console.WriteLine(author);
